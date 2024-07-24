@@ -1,0 +1,326 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    /* box-sizing: border-box; */
+}
+
+body {
+    background: #0d325f;
+    background: url(../images/bg_102.jpg) center no-repeat;
+    background-size: 100% 100%;
+    min-width: 550px;
+    height: 1014px;
+    font-weight: bold;
+    font-size: 20px;
+    color: aliceblue;
+}
+
+#header {
+    background: rgba(29, 27, 27, 0.726);
+    /* text-align: center;
+    height: 60px;
+    line-height: 60px;*/
+    background: url(../images/head_bg.png);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* background-size: 100% 100%; */
+}
+
+.center .main_m {
+    width: 9.75rem;
+}
+
+.center .main_m .main_m_t {
+    width: 100%;
+    margin-bottom: 0.3125rem;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 99;
+}
+
+.item1 {
+    width: 100px;
+    height: 200px;
+    background: url(../images/mainm-1.png) center no-repeat;
+    background-size: 100% 100%;
+    /* padding-top: 0.4875rem; */
+    box-sizing: border-box;
+}
+
+.content .main_m .main_m_t .item1 p {
+    width: 100%;
+    font-size: 0.175rem;
+    font-family: DINPro;
+    font-weight: 500;
+    color: #4B7EFE;
+    line-height: 0.3125rem;
+    text-align: center;
+    /* padding-top: 0.0875rem; */
+    padding-bottom: 0.0375rem;
+    margin-bottom: 0.25rem;
+    box-sizing: border-box;
+}
+
+#header h1 {
+    color: aliceblue;
+    font-size: 30px;
+}
+
+#container {
+    display: flex;
+
+}
+
+#container .column {
+    text-align: center;
+    margin: 0px 20px;
+    position: relative;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#center {
+    flex: 1;
+}
+
+#left {
+    /* width: 400px; */
+    height: auto;
+    /* background: rgba(95, 179, 235, 0.972); */
+    display: absolute;
+}
+
+#left .module {
+    border: 1px solid rgba(25, 186, 139, .17);
+    margin-bottom: 20px;
+    /* 每个模块之间的间距 */
+    padding: 10px;
+    /* 模块的背景颜色 */
+    border: 1px solid #ccc;
+    /* 模块的边框 */
+    background: url(../images/line.png);
+}
+
+#left .module:last-child {
+    margin-bottom: 0;
+}
+
+#left .title {
+    color: #fff;
+    text-align: center;
+    line-height: .6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, .2)
+}
+
+.table th,
+.table td {
+    text-align: center;
+    /* 水平居中 */
+    vertical-align: middle;
+    /* 垂直居中 */
+    padding: 10px;
+    /* 单元格内边距 */
+}
+
+
+.scroll-box::-webkit-scrollbar {
+    display: none;
+    /* 在Edge、Chrome、Safari和Opera中隐藏滚动条 */
+}
+
+.scroll-box-flightcount::-webkit-scrollbar {
+    display: none;
+    /* 在Edge、Chrome、Safari和Opera中隐藏滚动条 */
+}
+
+.scroll-box-content::-webkit-scrollbar {
+    display: none;
+    /* 在Edge、Chrome、Safari和Opera中隐藏滚动条 */
+}
+
+.scroll-box,
+.scroll-box-content,
+.scroll-box-flightcount {
+    height: 200px;
+    width: 100%;
+    overflow-y: auto;
+    position: relative;
+
+}
+
+
+.scroll-box-content tr:nth-child(odd) {
+    background: #0f2e673a;
+}
+
+.scroll-box-content tr:nth-child(even) {
+    background: #243d7d40;
+}
+
+
+#right {
+    /* width: 150px; */
+    /* background: rgb(231, 105, 2); */
+}
+
+.public-title:before {
+    width: 4px;
+    height: 20px;
+    top: 5px;
+    position: absolute;
+    content: "";
+    background: #2997e4;
+    border-radius: 2px;
+    left: 5px;
+
+
+}
+
+.public-title {
+    width: calc(100% - 20px);
+    height: 30px;
+    position: relative;
+    top: 0;
+    left: 5px;
+    color: white;
+    padding-left: 16px;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.boxall {
+    /* border: 1px solid #3486da; */
+    border: 1px solid rgba(25, 186, 139, .17);
+    padding: 10px;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 20px;
+}
+
+.boxall:before,
+.boxall:after {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+    border-top: 2px solid #02a6b5;
+    top: -2px;
+}
+
+.boxall:before,
+.boxfoot:before {
+    border-left: 3px solid #02a6b5;
+    left: -2px;
+}
+
+.boxall:after,
+.boxfoot:after {
+    border-right: 3px solid #02a6b5;
+    right: -2px;
+}
+
+.boxfoot {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+.boxfoot:before,
+.boxfoot:after {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+    border-bottom: 3px solid #02a6b5;
+    bottom: -2px;
+}
+
+.tit01 {
+    background: linear-gradient(to right, rgba(48, 82, 174, 1), rgba(48, 82, 174, 0));
+    color: #fff;
+    font-size: .17rem;
+    padding: .03rem .1rem;
+}
+
+.boxnav {}
+
+.nav01 {
+    height: calc(100% - .3rem);
+    padding-top: .2rem;
+}
+
+.nav02 {
+    height: calc(100%);
+    display: flex;
+    align-items: center;
+}
+
+.nav03 {
+    height: calc(100% - .47rem);
+    padding-top: .2rem;
+}
+
+.nav04 {
+    height: calc(100% - .7rem);
+}
+
+.nav02>div {
+    width: 100%;
+}
+
+.nav02 p {
+    text-align: center;
+    color: #fff;
+}
+
+.nav02 .p1 {
+    font-size: .3rem;
+    letter-spacing: .02rem;
+}
+
+.p2 {
+    font-size: .6rem;
+    letter-spacing: .05rem;
+    padding: .1rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+.nav02 .p3 span {
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    width: 45%;
+    font-size: .3rem;
+}
+
+.dot {
+    width: .2rem;
+    height: .2rem;
+    display: inline-block;
+    border-radius: 1rem;
+    position: relative;
+    top: .04rem;
+    margin-right: .1rem;
+}
+
+.dot1 {
+    background: #ff0006
+}
+
+.dot2 {
+    background: #00ea37
+}
+
+.text-green {
+    color: #00ea37
+}
+
+.text-red {
+    color: #ff0006;
+}

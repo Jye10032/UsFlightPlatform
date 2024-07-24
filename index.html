@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>全美航空监控平台</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="
+    https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js
+    "></script>
+    <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+    <script type="text/javascript"
+        src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+    <script type="text/javascript"
+        src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+    <!-- <script type="text/javascript"
+        src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script> -->
+
+    <script type="text/javascript"
+        src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <meta name="renderer" content="webkit" />
+    <!-- 引入jquery -->
+    <script language="javascript" type="text/javascript"
+        src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+</head>
+
+
+
+<body>
+    <div id="header">
+        <h1 style="height: 100%; top:0;font-size: 30px;">全美航空监控平台</h1>
+    </div>
+    <div id="container" style="padding-top: 20px;">
+        <div id="left" class="column" style="width:25%;">
+            <div class="public-title" style="text-align: left;font-size: 20px;margin-bottom: 5px;">季度航班统计</div>
+            <div style="background: rgba(12, 31, 86, 0.7); margin-bottom: 30px;">
+
+                <div class="boxnav nav01" id="echart_season" style="width: 100%;height:200px"></div>
+
+                <!-- <div id="echart_season" style="width: 100%;height:200px">
+                </div> -->
+                <!-- <div class="boxfoot"></div> -->
+            </div>
+            <div class="public-title" style="text-align: left;font-size:20px;margin-bottom: 5px;">月度航班统计</div>
+            <div style="background: rgba(12, 31, 86, 0.7); margin-bottom: 30px;">
+
+                <div id="echart_month" style="width: 100%;height:200px">
+                </div>
+                <!-- <div class="boxfoot"></div> -->
+            </div>
+            <div class="public-title" style="text-align: left;font-size:20px;margin-bottom: 5px;">监控航班区域</div>
+            <div style="background: rgba(12, 31, 86, 0.7); margin-bottom: 30px;">
+
+                <div id="echart_map" style="width: 100%;height:310px">
+                </div>
+                <!-- <div class="boxfoot"></div> -->
+            </div>
+
+
+        </div>
+        <!-- <div class="boxall"> -->
+
+
+        <div id="center" class="column" style="padding-left: 10;
+    padding-right: 0;margin-left: 70px;
+    margin-right: 0;height: 804px;position: relative;">
+            <div
+                style="position: absolute;margin-top:0px;position: relative;display: flex;justify-content: center;align-items: center;">
+                <div class="main_m" style="position: absolute; left:0 ;top:6px;">
+                    <div class="main_m_t" style="left:0;top:0;">
+                        <div class="item1" style="position: absolute;left:0;top:0;width: 150px;height: 230px;">
+                            <!-- <br> -->
+                            <br>
+                            <p>
+                                <small>今日飞行次数</small><br>
+
+                                <span data-ride="numberGrow6" data-value="0" data-time="3" data-digit="2"></span>次
+                            </p>
+                            <p>
+                                <small>延误率</small><br><span data-ride="numberGrow6" data-value="0" data-time="3"
+                                    data-digit="2"></span>%
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="echart_gl" style="width:  530px;height: 530px;padding-left: 0;
+    padding-right: 0;top: 50px; position: absolute;display: flex;justify-content: center;align-items: center;">
+                </div>
+            </div>
+            <div style="width:100%; padding:0;margin-left: 0;
+    margin-right: 0;">
+                <div
+                    style="position: absolute;background: rgba(12, 31, 86, 0.7); margin-bottom: 20px;top:565px;height: 313px;left:0">
+                    <table class="table" style="width: 680px; background: rgb(8, 22, 63)">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>时间</th>
+                                <th>起飞地</th>
+                                <th>目的地</th>
+                                <th>航班编号</th>
+                                <th>航班状态</th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <div class="scroll-box" style="left:20px ;height: 260px;">
+                        <table class="scroll-tab" style="width: 650px;">
+                            <tbody class="scrollContent"></tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- </div> -->
+        <div id="right" class="column" style="width:25%">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <div class="public-title" style="text-align: left;font-size:20px;">机场新闻
+                        </div>
+                    </tr>
+                </thead>
+            </table>
+            <div style="background: rgba(12, 31, 86, 0.7); margin-bottom: 10px;height: 400px; font-size: 20px;">
+
+
+                <div class="scroll-box-content" style="height: 400px;">
+                    <table class="scroll-tab-content" style="text-align: left;font-size: 15px;">
+                        <tbody class="scrollContent-content"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="public-title" style="text-align: left;font-size:20px;margin-bottom: 20px;">机场流量排行</div>
+            <div style="background: rgba(12, 31, 86, 0.7); color:aliceblue ;height:390px">
+
+                <table class=" table" style="width:100% ;text-align: center; /* 水平居中 */
+                vertical-align: middle;background: rgb(8, 22, 63)">
+                    <thead>
+                        <tr>
+
+                            <th>机场编号</th>
+                            <th>流量</th>
+                        </tr>
+                    </thead>
+                </table>
+
+                <div class="scroll-box-flightcount" style="width: 100%; height: 355px;">
+                    <table class="scroll-tab-flightcount" style="width: 100%;text-align: center; /* 水平居中 */
+                vertical-align: middle;">
+                        <tbody class="scrollContent-flightcount"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/echart_month.js"></script>
+    <script type="text/javascript" src="js/echart_gl.js"></script>
+    <script type="text/javascript" src="js/echart_season.js"></script>
+    <script type="text/javascript" src="js/echart_map.js"></script>
+    <script>
+        // let counturl = 'http://172.22.120.125:12346/data_count';
+        let counturl = 'http://localhost:8000/json/data_count.json'
+        function countDataAndUpdateUI() {
+            //模拟数据
+            // let data12 = {
+            //     data: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }],
+            // };
+            fetch(counturl)
+                .then(response => response.json()) // 解析JSON数据
+                .then(count_data => {
+                    console.log(count_data);
+                    // 更新第一个数据为5吨
+                    document.querySelector('.item1 p:nth-child(2) span').dataset.value = count_data[0].total;
+                    document.querySelector('.item1 p:nth-child(2) span').textContent = count_data[0].total;
+
+                    // 更新第二个数据为5万元
+                    document.querySelector('.item1 p:nth-child(3) span').dataset.value = count_data[0].delay_rate;
+                    document.querySelector('.item1 p:nth-child(3) span').textContent = count_data[0].delay_rate;
+                })
+
+        }
+        // 使用setInterval来每隔一段时间（例如5分钟）自动调用函数
+        // 5分钟 = 300000毫秒
+        setInterval(countDataAndUpdateUI, 1000);
+
+        // 首次加载页面时也调用一次函数，以便立即显示数据
+        init6();
+        countDataAndUpdateUI();
+
+
+    </script>
+    <script>
+        /**
+     *  使用方法
+     * dom         <p data-ride="numberGrow" data-value="8711.11" data-time="1" data-digit="2">0</p>
+     * data-ride   必填
+     * data-value  最终数值
+     * data-time   持续时间
+     * data-digit  保留小数
+     * 0           起始数值
+     * */
+
+        // 数字增长
+        function NumberGrow(element, options) {
+            options = options || {};
+
+            var _node = element,
+                _hz = 16, //60Hz性价比最高。mac可达到47.95   https://support.apple.com/zh-cn/HT210742
+                time = options.time || _node.dataset.time, //总时间
+                num = options.num || _node.dataset.value, //要显示的真实数值
+                digit = options.digit || _node.dataset.digit, //小数点后几位增长
+                step = num * _hz / (time * 1000),
+                start = 0, //计数器
+                interval, //定时器
+                old = 0;
+
+
+            // console.log(num, parseInt(num), 'num');
+            // if(num/1000000 >= 1)
+
+            interval = setInterval(function () {
+                start = start + step;
+                if (start >= num) {
+                    clearInterval(interval);
+                    interval = undefined;
+                    start = num;
+                }
+
+                var t, __time;
+                if (digit) {
+                    __time = Math.pow(10, digit);
+                    t = Math.floor(start * __time) / __time;
+                    t = t.toLocaleString()
+                    // console.log(t, 't');
+                } else {
+                    t = Math.floor(start);
+                    t = t.toLocaleString()
+                }
+
+                if (t == old) {
+                    return;
+                }
+
+                old = t;
+                _node.textContent = old;
+            }, _hz);
+        }
+
+        // 产量及收益
+        function init6() {
+            var nodeList = document.querySelectorAll('[data-ride="numberGrow6"]');
+            for (i = 0; i < nodeList.length; i++) {
+                (function () {
+                    var _this = nodeList[i];
+                    new NumberGrow(_this);
+                })(i)
+            }
+        }
+
+        // 产量及收益
+        init6();
+    </script>
+
+
+    <script type="text/javascript" src="js/scroll_center.js"></script>
+    <script type="text/javascript" src="js/scroll_right_bottom.js"></script>
+    <script type="text/javascript" src="js/scroll_content.js"></script>
+
+</body>
+
+</html>

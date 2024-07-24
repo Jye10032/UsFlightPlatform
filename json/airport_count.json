@@ -1,0 +1,26 @@
+[
+    {
+        "airport_name": "HAM",
+        "count": 3
+    },
+    {
+        "airport_name": "LHR",
+        "count": 2
+    },
+    {
+        "airport_name": "CDG",
+        "count": 2
+    },
+    {
+        "airport_name": "SFO",
+        "count": 2
+    },
+    {
+        "airport_name": "JFK",
+        "count": 2
+    },
+    {
+        "airport_name": "LAX",
+        "count": 1
+    }
+]

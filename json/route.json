@@ -1,0 +1,30 @@
+[
+    {
+        "takeoff_time": "07:21",
+        "origin": "SFO",
+        "dest": "JFK",
+        "tailnum": "N14228",
+        "status": "1"
+    },
+    {
+        "takeoff_time": "08:00",
+        "origin": "JFK",
+        "dest": "SFO",
+        "tailnum": "N24228",
+        "status": "2"
+    },
+    {
+        "takeoff_time": "09:00",
+        "origin": "SFO",
+        "dest": "JFK",
+        "tailnum": "N34228",
+        "status": "3"
+    },
+    {
+        "takeoff_time": "10:00",
+        "origin": "JFK",
+        "dest": "SFO",
+        "tailnum": "N44228",
+        "status": "4"
+    }
+]
